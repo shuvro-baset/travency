@@ -5,6 +5,7 @@ import { useEffect } from 'react';
 // initialize firebase authentication.
 initializeAuthentication()
 const auth = getAuth();
+
 // auth provider object for google
 const googleProvider = new GoogleAuthProvider();
 
@@ -51,6 +52,4 @@ const useFirebase = () => {
     
   };
     
-    
-
 export default useFirebase;

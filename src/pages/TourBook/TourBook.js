@@ -95,6 +95,14 @@ const TourBook = () => {
                                 <textarea {...register("message")} rows="3" /> <br />
                                 {errors.message && <span>This field is required</span>}
 
+                                <label>card number</label> <br />
+                                <input  {...register("address", { required: true })}/> <br />
+                                {errors.address && <span>This field is required</span>}
+
+                                <label>Amount</label> <br />
+                                <input  {...register("address", { required: true })}/> <br />
+                                {errors.address && <span>This field is required</span>}
+
                                 <button type="submit" className="btn btn-booking">Book a Tour</button>
                         </form>
                     </div>

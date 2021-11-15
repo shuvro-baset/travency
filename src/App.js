@@ -48,8 +48,6 @@ function App() {
           <Route path="/login">
             <SignIn></SignIn>
           </Route>
-
-
           <Route path="*">
             <NotFound></NotFound>
           </Route>

@@ -6,7 +6,7 @@ import './NavBar.css'
 import logo from '../../image/travency-logo.png';
 
 const NavBar = () => {
-    // destructuring user and logout info
+    // destructuring user and logout info from useAuth hook.
     const {user, logout} = useAuth();
   
     return (

@@ -3,6 +3,7 @@ import { Col, Container, Row } from 'react-bootstrap';
 import './TopReview.css'
 const TopReview = () => {
     return (
+        // need to update dynamically 
         <Container className="my-5">
             <Row>
                 <h1 className="top-review text-center">Top Reviews</h1>
