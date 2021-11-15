@@ -5,7 +5,7 @@ import React from 'react';
 
 
 const CheckOutForm = (props) => {
-    const {price} = props.price;
+    const {price} = props;
     const stripe = useStripe();
     const elements = useElements();
     const handleSubmit = async (event) => {
