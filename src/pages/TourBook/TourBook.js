@@ -1,8 +1,11 @@
+import { Elements } from '@stripe/react-stripe-js';
+import { loadStripe } from '@stripe/stripe-js';
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
 import { useForm } from 'react-hook-form';
 import { useHistory, useLocation, useParams } from 'react-router';
+import CheckOutForm from '../../components/CheckOutForm/CheckOutForm';
 import useAuth from '../../hooks/useAuth'
 import './TourBook.css'
 
@@ -53,7 +56,10 @@ const TourBook = () => {
             })  
 }
 
-    
+    // Make sure to call `loadStripe` outside of a component’s render to avoid
+// recreating the `Stripe` object on every render.
+const stripePromise = loadStripe('pk_test_51Jw6sfC42yfmi7ALcc9jMNvPgFgFSKTrSl8Z0q3snxPn4PUCmskJw1eQgdHRboovWnGPFXsVcmatJRffHSLjOO8G00ur6o1BQn');
+
     return (
         <Container>
             <Row className="my-5">
@@ -95,17 +101,15 @@ const TourBook = () => {
                                 <textarea {...register("message")} rows="3" /> <br />
                                 {errors.message && <span>This field is required</span>}
 
-                                <label>card number</label> <br />
-                                <input  {...register("address", { required: true })}/> <br />
-                                {errors.address && <span>This field is required</span>}
-
-                                <label>Amount</label> <br />
-                                <input  {...register("address", { required: true })}/> <br />
-                                {errors.address && <span>This field is required</span>}
 
                                 <button type="submit" className="btn btn-booking">Book a Tour</button>
                         </form>
                     </div>
+                    <Elements stripe={stripePromise}>
+                        <CheckOutForm
+                            price= {tour.price}
+                         />
+                    </Elements>
                 </Col>
             </Row>
         </Container>
